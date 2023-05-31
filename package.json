@@ -1,0 +1,25 @@
+{
+  "name": "catgpt",
+  "version": "1.0.0",
+  "description": "This is a chat bot that responds as if it was a cat",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "dev": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MalcolmMc23/CatGPT.git"
+  },
+  "keywords": [],
+  "author": "Malcolm McDonald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MalcolmMc23/CatGPT/issues"
+  },
+  "homepage": "https://github.com/MalcolmMc23/CatGPT#readme",
+  "dependencies": {
+    "dotenv": "^16.1.2",
+    "openai": "^3.2.1"
+  }
+}
