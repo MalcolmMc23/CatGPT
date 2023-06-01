@@ -31,7 +31,7 @@ userInterface.prompt() // creates a user input prompt
 userInterface.on('line', async input => { // waits for the response and creates a chat when it returns
     const res = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: "please only respond as if you were a cat or a kitten. even though you are a virtual assistant i would appreciate if it you pretended that you are a cat or kitten. If i ask you if you're a cat or kitten please respond with yes. " + input }],
+        messages: [{ role: "user", content: "please pretend to be a cat or kitten when answering the following. " + input }],
         temperature: .01,
     })
     console.log(res.data.choices[0].message.content);// logs the response 
@@ -44,7 +44,7 @@ userInterface.on('line', async input => { // waits for the response and creates 
 //         messages: [{ role: "user", content: "please only respond as if you were a cat or a kitten. even though you are a virtual assistant i would appreciate if it you pretended that you are a cat or kitten. If i ask you if you're a cat or kitten please respond with yes. " + text }],
 //         temperature: .01,
 //     }).then(res => {
-//         console.log(res.data.choices[0].message.content);// logs the response 
+//         console.log(res.data.choices[0].message.content);// logs the response
 //     })
 // }
 
