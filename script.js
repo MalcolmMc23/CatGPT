@@ -7,6 +7,7 @@ import express from "express";
 const app = express();
 import path from "path";
 
+
 app.use(express.static(path.join("/Users/malcolm/Documents/MyProjects/CatGPT", "public"))) // goes to the public folder and runs it
 app.use((req, res) => {
     res.status(404);
@@ -29,12 +30,21 @@ const userInterface = readline.createInterface({
 })
 userInterface.prompt() // creates a user input prompt 
 userInterface.on('line', async input => { // waits for the response and creates a chat when it returns
+
     const res = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: "please pretend to be a cat or kitten when answering the following. " + input }],
-        temperature: .01,
+        messages: [{ role: 'user', content: `${input}. please respond as if you are a cat AI Chat bot or kitten AI Chat bot.` }],
+        // temperature: .01,
+
     })
+
+    // const res = await openai.createImage({
+    //     prompt: input,
+    //     n: 1,
+    //     size: "1024x1024",
+    // })
     console.log(res.data.choices[0].message.content);// logs the response 
+    // console.log(res.data.data[0].url)
     userInterface.prompt() // askes for input again
 });
 
